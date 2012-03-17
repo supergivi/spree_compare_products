@@ -3,12 +3,14 @@ var product_id = <%= @deleted_product.id %>
 onRemoveCompareProduct(product_id);
 <% end %>
 
-<% notice = flash.delete(:notice)
+<% notice = flash[:notice]
+flash[:notice] = nil
 if notice %>
   var notice = "<%= notice %>";
   onCompareProductNotice(notice);
 <% end
-error = flash.delete(:error)
+error = flash[:error]
+flash[:error] = nil
 if error %>
   var error = "<%= error %>";
   onCompareProductError(error);
